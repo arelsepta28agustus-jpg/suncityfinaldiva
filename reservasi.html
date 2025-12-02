@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suncity Waterpark - Reservasi</title>
+  <meta name="description" content="Reservasi kunjungan ke Suncity Waterpark: pilih tanggal, jenis tiket, dan jumlah.">
+  <link rel="icon" href="foto/logo-suncity-2.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-glass fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="foto/logo-suncity-2.png" alt="Suncity Waterpark" height="32">
+  <span class="fw-bold d-none d-sm-inline">Suncity Waterpark</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">BERANDA</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tiket-promo.html">TIKET & PROMO</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="reservasi.html">RESERVASI</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="acara-event.html">ACARA & EVENT</a>
+      </li>
+      <li class="nav-item ms-lg-3">
+        <button id="themeToggle" class="btn btn-outline-primary rounded-circle" aria-label="Toggle Dark Mode">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+  </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-reservasi-custom">
+    <div class="hero-reservasi-content">
+      <h1 class="hero-reservasi-title">
+        Rayakan <span class="text-highlight-pink">KESERUANMU</span> di sini!<br>
+        <span class="text-highlight-orange">Suncity Waterpark!</span>
+      </h1>
+      <p class="hero-reservasi-subtitle">
+        Nikmati keseruan wahana tanpa gangguan dengan reservasi sekarang.<br>
+        Selamat bersenang-senang!
+      </p>
+    </div>
+
+    <!-- Floating Search Box -->
+    <div class="search-box-overlay">
+      <div class="search-box-title">CARI TIKETNYA DI SINI DAN DAPATKAN PROMO MENARIK!</div>
+      <div class="search-form-grid">
+        <div class="search-input-group">
+          <i class="bi bi-calendar"></i>
+          <input type="date" id="visitDate" class="form-control border-0 bg-transparent"
+            placeholder="Tanggal Kunjungan">
+        </div>
+        <div class="search-input-group">
+          <i class="bi bi-ticket-perforated"></i>
+          <select id="ticketType" class="form-select border-0 bg-transparent">
+            <option value="outbound" selected>Semua Paket Outbound</option>
+          </select>
+        </div>
+        <div class="search-input-group">
+          <i class="bi bi-tag"></i>
+          <input type="text" id="ticketPrice" class="form-control border-0 bg-transparent" placeholder="Harga Paket"
+            readonly>
+        </div>
+        <button class="search-btn-blue" onclick="searchTickets()">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <!-- Outbound Packages Section -->
+    <div class="reservasi-main-title-wrapper">
+      <h2 class="reservasi-main-title">Suncity</h2>
+      <h3 class="reservasi-sub-title">Waterpark</h3>
+    </div>
+
+    <div class="row g-4 mb-5" id="ticketCards" style="display: none;">
+      <!-- Bronze Package -->
+      <div class="col-md-4 ticket-card-wrapper" data-type="Outbound Package" data-tier="bronze">
+        <div class="package-card-outbound bronze">
+          <h3 class="outbound-title">Outbound</h3>
+          <div class="outbound-subtitle">Bronze Package</div>
+          <img src="foto/outbound-bronze.jpg" alt="Bronze Package" class="outbound-img">
+          <ul class="outbound-features">
+            <li>Minimal Pengambilan Paket Outbound 30 Orang</li>
+            <li>Menu Konsumsi Minimal 20Pax/Porsi</li>
+            <li>Weekend & hari Libur Nasional Penyesuaian Tarif</li>
+          </ul>
+          <button class="btn btn-primary w-100 mt-3" onclick="pesan('outbound', 'bronze')">Pesan Sekarang</button>
+        </div>
+      </div>
+
+      <!-- Silver Package -->
+      <div class="col-md-4 ticket-card-wrapper" data-type="Outbound Package" data-tier="silver">
+        <div class="package-card-outbound silver">
+          <h3 class="outbound-title">Outbound</h3>
+          <div class="outbound-subtitle">Silver Package</div>
+          <img src="foto/outbound-silver.jpg" alt="Silver Package" class="outbound-img">
+          <ul class="outbound-features">
+            <li>Minimal Pengambilan Paket Outbound 50 Orang</li>
+            <li>Menu Konsumsi Minimal 20Pax/Porsi</li>
+            <li>Weekend & hari Libur Nasional Penyesuaian Tarif</li>
+          </ul>
+          <button class="btn btn-primary w-100 mt-3" onclick="pesan('outbound', 'silver')">Pesan Sekarang</button>
+        </div>
+      </div>
+
+      <!-- Golden Package -->
+      <div class="col-md-4 ticket-card-wrapper" data-type="Outbound Package" data-tier="golden">
+        <div class="package-card-outbound golden">
+          <h3 class="outbound-title">Outbound</h3>
+          <div class="outbound-subtitle">Golden Package</div>
+          <img src="foto/outbound-golden.jpg" alt="Golden Package" class="outbound-img">
+          <ul class="outbound-features">
+            <li>Minimal Pengambilan Paket Outbound 100 Orang</li>
+            <li>Menu Konsumsi Minimal 20Pax/Porsi</li>
+            <li>Weekend & hari Libur Nasional Penyesuaian Tarif</li>
+          </ul>
+          <button class="btn btn-primary w-100 mt-3" onclick="pesan('outbound', 'golden')">Pesan Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="checkoutSection" style="display: none;">
+    <section class="checkout-hero">
+      <div class="container">
+        <h1>Konfirmasi Pemesanan</h1>
+        <p>Konfirmasi pesanan Anda dan selesaikan pembayaran</p>
+      </div>
+    </section>
+
+    <div class="container mt-5" id="checkoutContainer" style="display: none;">
+      <div class="checkout-container">
+        <!-- Left: Selected Package Confirmation -->
+        <section class="checkout-section">
+          <h2 class="section-title">
+            <i class="bi bi-check-circle-fill text-success"></i>
+            Paket Yang Dipilih
+          </h2>
+          <div class="selected-package-card" id="selectedPackageCard">
+            <!-- Package content will be dynamically inserted here -->
+          </div>
+        </section>
+
+        <!-- Right: Order Summary -->
+        <aside class="order-summary">
+          <div class="summary-header">
+            <div class="summary-title">
+              <div class="summary-icon">
+                <i class="bi bi-receipt"></i>
+              </div>
+              Ringkasan Pesanan
+            </div>
+          </div>
+
+          <div class="summary-date">
+            <div class="summary-date-label">Tanggal Kunjungan</div>
+            <div class="summary-date-value" id="visitDateDisplay">Senin, 1 Desember 2025</div>
+          </div>
+
+          <div class="summary-items" id="orderItems">
+            <!-- Items will be populated by JavaScript -->
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-discounts">
+            <div class="discount-text">Diskon Promo 5%</div>
+            <div class="discount-amount" id="discountAmount">- Rp0</div>
+          </div>
+
+          <div class="summary-total">
+            <div class="total-label">Total Pembayaran</div>
+            <div class="total-amount" id="totalAmount">Rp0</div>
+          </div>
+
+          <div class="payment-section">
+            <div class="payment-title">Pilih Metode Pembayaran</div>
+            <div class="payment-options">
+              <div class="payment-option selected" data-payment="gopay">
+                <img src="foto/logo-gopay-1.png" alt="GoPay" class="payment-logo">
+                <div class="payment-name">GoPay</div>
+                <div class="payment-fee">Gratis</div>
+              </div>
+              <div class="payment-option" data-payment="ovo">
+                <img src="foto/logo-ovo-1.png" alt="OVO" class="payment-logo">
+                <div class="payment-name">OVO</div>
+                <div class="payment-fee">Gratis</div>
+              </div>
+              <div class="payment-option" data-payment="dana">
+                <img src="foto/logo-dana-1.png" alt="DANA" class="payment-logo">
+                <div class="payment-name">DANA</div>
+                <div class="payment-fee">Gratis</div>
+              </div>
+              <div class="payment-option" data-payment="transfer">
+                <div class="payment-icon-wrapper">
+                  <i class="bi bi-bank payment-icon-bank"></i>
+                </div>
+                <div class="payment-name">Transfer Bank</div>
+                <div class="payment-fee">Gratis</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-primary" id="checkoutBtn" onclick="lanjutkanPembayaran()">
+              <span class="spinner" id="checkoutSpinner" style="display:none;"></span>
+              Lanjutkan Pembayaran
+            </button>
+            <button class="btn-secondary" onclick="kembaliKeBeranda()">
+              <i class="bi bi-arrow-left me-2"></i>Kembali ke Beranda
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <div class="footer-logo">
+            <img src="foto/logo-suncity-2.png" alt="Suncity Waterpark">
+            <div>
+              <h5 class="mb-0">Suncity Waterpark</h5>
+              <small>Temukan Kami</small>
+            </div>
+          </div>
+          <p class="small mb-3">Jam Operasional: Setiap Hari (08.00 – 10.00 WIB)</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <h5>Taman Air Suncity Sidoarjo</h5>
+          <p class="small mb-2">Jalan Pahlawan Nomor 1, Sidoarjo, Jawa Timur 61212</p>
+          <p class="small mb-1"><a href="https://maps.app.goo.gl/LFm6imJXtkZCkdM57?g_st=ipc"
+              class="text-decoration-none text-white" target="_blank">Klik Lokasi Di Sini</a></p>
+          <p class="small mb-1">Telp: (657) 123-456</p>
+          <p class="small mb-0">Email: <a href="mailto:admin@suncitywaterpark.co.id"
+              class="text-decoration-none text-white">admin@suncitywaterpark.co.id</a></p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <h5>Taman Air Suncity Madiun</h5>
+          <p class="small mb-2">Jalan S. Parman Nomor 2, Kota Madiun, Jawa Timur 63119</p>
+          <p class="small mb-1"><a href="https://maps.app.goo.gl/mbcYyH4tgUmckpLb8?g_st=ipc"
+              class="text-decoration-none text-white" target="_blank">Klik Lokasi Di Sini</a></p>
+          <p class="small mb-1">Telp: (657) 123-456</p>
+          <p class="small mb-0">Email: <a href="mailto:admin@suncitywaterpark.co.id"
+              class="text-decoration-none text-white">admin@suncitywaterpark.co.id</a></p>
+        </div>
+      </div>
+      <div class="text-center small pt-4 mt-4 border-top border-light">
+        © <span id="year"></span> Suncity Waterpark. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  </body>
+
+</html>
